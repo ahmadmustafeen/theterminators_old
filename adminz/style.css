@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    color: rgb(40, 28, 211);
+    padding: 0;
+}
+
+.main{
+    width: 100%;
+    background-image: url('./src/admin-bg.jpg');
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+.sidebar{
+    width: 100%;
+    height: fit-content;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.507),rgba(255, 255, 255, 0.507));
+    box-shadow: gray 0 5px 5px ;
+    /* background-color: aquamarine; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.sidebar-header{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.sidebar-header h2{
+    font-size: 28px;
+    font-weight: 400;
+}
+.sidebar-menu{
+    width: 100%;
+    height: fit-content;
+    /* padding: 50px 0; */
+    display: flex;
+    flex-direction: row;
+ align-items: center;
+}
+.sidebar-menu a{
+    width: 160px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    transition: background-color 0.5s ease-in;
+    font-size: 22px;
+}
+.sidebar-menu a:hover{
+    background-color: aqua;
+    color: black;
+    transition: background-color 0.5s ease-in;
+}
+.sidebar-menu a h3{
+    font-weight: 400 !important;
+}
+.mainbar{
+    height: fit-content;
+    width: 100%;
+    padding-bottom: 50px;
+    /* background-color: yellowgreen; */
+}
+.mainbar-title{
+    width: 100%;
+    height: 100px;
+    /* background-color: aquamarine; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.mainbar-title h2{
+    font-size: 22px;
+}
+.mainbar-form{
+    margin: auto;
+    margin-top: 50px;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.486),rgba(255, 255, 255, 0.486));
+    width: 50%;
+    box-shadow: 0px 0px 5px 5px green;
+    padding: 50px 0;
+    height: fit-content;
+}
+
+.mainbar-form table{
+    width: 80%;
+    margin: auto;
+    /* background-color: black; */
+}
+.mainbar-form label{
+    font-size: 24px;
+}
+.mainbar-form input,.mainbar-form select,.mainbar-form option{
+    width: 250px;
+    height: 40px;
+    margin-left: 30px;
+}
+#row{
+    height: 100px;
+}
+.mainbar-row{
+    display: flex;
+    flex-direction: row;
+}
+.mainbar-form button{
+    margin-left: 30px;
+    width: 100px;
+    height: 30px;
+    color: white;
+    background-color: blue;
+    border: none;
+}

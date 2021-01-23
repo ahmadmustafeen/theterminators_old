@@ -1,0 +1,86 @@
+#img1, #img2, #img3, #img4, #img5, #img6, #img7, #img8, #img9, #img10, #img11, #img12,
+#img13, #img14, #img15, #img16, #myImg1, #myImg2, #myImg3, #myImg4, #myImg5, #myImg6, #myImg7, #myImg8, #myImg9, 
+#myImg10, #myImg11, #myImg12, #myImg13, #myImg14, #myImg15, #myImg16{
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+#img1:hover , #img2:hover , #img3:hover , #img4:hover , #img5:hover , #img6:hover , 
+#img7:hover , #img8:hover , #img9:hover , #img10:hover , #img11:hover , #img12:hover ,
+#img13:hover , #img14:hover , #img15:hover , #img16:hover, #myImg1:hover , #myImg2:hover , 
+#myImg3:hover , #myImg4:hover , #myImg5:hover , #myImg6:hover , #myImg7:hover , #myImg8:hover , 
+#myImg9:hover , #myImg10:hover , #myImg11:hover , #myImg12:hover ,#myImg13:hover , 
+#myImg14:hover , #myImg15:hover , #myImg16:hover {
+  filter: brightness(88%) grayscale(50%);
+}
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 999; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  /* max-width: 40%; */
+}
+/* Caption of Modal Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+/* Add Animation */
+.modal-content, #caption {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+/* The Close Button */
+.close {
+  position: fixed;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* 100% Image Width on Smaller Screens */
+@media all and (max-width: 770px){
+  .modal-content {
+    width: 100% !important;
+max-width:100%;
+overflow-x:scroll;
+  }
+}
