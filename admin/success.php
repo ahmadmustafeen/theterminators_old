@@ -338,22 +338,21 @@ if(isset($_POST['addAboutUs'])){
     $aboutText1 = $_POST['aboutText1'];
     $aboutText2 = $_POST['aboutText2'];
     $aboutText3 = $_POST['aboutText3'];
+    $aboutText1a = substr($aboutText1,0,255);
+    $aboutText1b = substr($aboutText1,255,255);
+    $aboutText1c = substr($aboutText1,512,255);
+    $aboutText1d = substr($aboutText1,765,255);
 
-$aboutText1a = substr($aboutText1,0,255);
-$aboutText1b = substr($aboutText1,255,255);
-$aboutText1c = substr($aboutText1,512,255);
-$aboutText1d = substr($aboutText1,765,255);
 
+    $aboutText2a = substr($aboutText2,0,255);
+    $aboutText2b = substr($aboutText2,255,255);
+    $aboutText2c = substr($aboutText2,512,255);
+    $aboutText2d = substr($aboutText2,765,255);
 
-$aboutText2a = substr($aboutText2,0,255);
-$aboutText2b = substr($aboutText2,255,255);
-$aboutText2c = substr($aboutText2,512,255);
-$aboutText2d = substr($aboutText2,765,255);
-
-$aboutText3a = substr($aboutText3,0,255);
-$aboutText3b = substr($aboutText3,255,255);
-$aboutText3c = substr($aboutText3,512,255);
-$aboutText3d = substr($aboutText3,765,255);
+    $aboutText3a = substr($aboutText3,0,255);
+    $aboutText3b = substr($aboutText3,255,255);
+    $aboutText3c = substr($aboutText3,512,255);
+    $aboutText3d = substr($aboutText3,765,255);
 
 
 
@@ -367,22 +366,22 @@ $aboutText3d = substr($aboutText3,765,255);
 
 
 
-    $updateQ="UPDATE `addaboutus` SET 
-`aboutText1b`='$aboutText1a',
-`aboutText2b`='$aboutText2a',
-`aboutText3b`='$aboutText3a',
-`aboutText1c`='$aboutText1b',
-`aboutText2c`='$aboutText2b',
-`aboutText3c`='$aboutText3b',
-`aboutText1d`='$aboutText1c',
-`aboutText2d`='$aboutText2c',
-`aboutText3d`='$aboutText3c',
-`aboutText1e`='$aboutText1d',
-`aboutText2e`='$aboutText2d',
-`aboutText3e`='$aboutText3d',
-`aboutHeading1`='$aboutHeading1',
-`aboutHeading2`='$aboutHeading2',
-`aboutHeading3`='$aboutHeading3'
+        $updateQ="UPDATE `addaboutus` SET 
+    `aboutText1b`='$aboutText1a',
+    `aboutText2b`='$aboutText2a',
+    `aboutText3b`='$aboutText3a',
+    `aboutText1c`='$aboutText1b',
+    `aboutText2c`='$aboutText2b',
+    `aboutText3c`='$aboutText3b',
+    `aboutText1d`='$aboutText1c',
+    `aboutText2d`='$aboutText2c',
+    `aboutText3d`='$aboutText3c',
+    `aboutText1e`='$aboutText1d',
+    `aboutText2e`='$aboutText2d',
+    `aboutText3e`='$aboutText3d',
+    `aboutHeading1`='$aboutHeading1',
+    `aboutHeading2`='$aboutHeading2',
+    `aboutHeading3`='$aboutHeading3'
  WHERE 1";
 
 
@@ -406,9 +405,23 @@ $aboutText3d = substr($aboutText3,765,255);
 if(isset($_POST['about'])){
     $aboutHeading = $_POST['aboutHeading'];
     $aboutText= $_POST['aboutText'];
+    $aboutText1 = substr($aboutText,0,255);
+    $aboutText2 = substr($aboutText,255,255);
+    $aboutText3 = substr($aboutText,512,255);
+    $aboutText4 = substr($aboutText,765,255);
     $aboutMain = $_POST['aboutMain'];
     $aboutTextDesc= $_POST['aboutTextDesc'];
-    $updateQ="UPDATE `about` SET `aboutHeader`='$aboutHeading',`aboutText`='$aboutText',`aboutmain`='$aboutMain',`aboutmaindesc`='$aboutTextDesc' WHERE 1";
+    $updateQ="UPDATE `about` SET
+    `aboutHeader`='$aboutHeading',
+    `aboutText1`='$aboutText1',
+    `aboutText2`='$aboutText2',
+    `aboutText3`='$aboutText3',
+    `aboutText4`='$aboutText4',
+    `aboutmain`='$aboutMain',
+    `aboutmaindesc`='$aboutTextDesc'
+    WHERE 1";
+
+
     if($con->query($updateQ)){
         $status="Successfully Updated About us Content";
         return printMessage($status);

@@ -167,7 +167,7 @@ include_once('./header.php');
     <div class="service">
         <br><br>
         <div class="serHead text-center">
-            <h6>OUR SERVICES</h6>
+            <h6>Nature of Business</h6>
             <h2><?php echo $services_header ?></h2>
             <p><?php echo $services_text1,$services_text2,$services_text3,$services_text4 ?></p>
         </div><br>

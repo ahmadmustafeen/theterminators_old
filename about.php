@@ -23,35 +23,43 @@ $contactQ  = mysqli_query($con,
 
 
 
-while($row = mysqli_fetch_assoc($contactQ)){
-$aboutText1b= $row['aboutText1b'];
-$aboutText2b= $row['aboutText2b'];
-$aboutText3b= $row['aboutText3b'];
-$aboutText1c= $row['aboutText1c'];
-$aboutText2c= $row['aboutText2c'];
-$aboutText3c= $row['aboutText3c'];
-$aboutText1d= $row['aboutText1d'];
-$aboutText2d= $row['aboutText2d'];
-$aboutText3d= $row['aboutText3d'];
-$aboutText1e= $row['aboutText1e'];
-$aboutText2e= $row['aboutText2e'];
-$aboutText3e= $row['aboutText3e'];
-
-
-
-
-
-    $aboutText1 = $aboutText1b.$aboutText1c.$aboutText1d.$aboutText1e ;
-    $aboutText2 = $aboutText2b.$aboutText2c.$aboutText2d.$aboutText2e ;
-    $aboutText3 = $aboutText3b.$aboutText3c.$aboutText3d.$aboutText3e ;
-    $aboutHeading1 = $row['aboutHeading1'];
-    $aboutHeading2 = $row['aboutHeading2'];
-    $aboutHeading3 = $row['aboutHeading3'];
-}
-$aboutQ  = mysqli_query($con,"SELECT `aboutHeader`, `aboutText`, `aboutmain`, `aboutmaindesc` FROM `about` WHERE 1"); 
+    while($row = mysqli_fetch_assoc($contactQ)){
+        $aboutText1b= $row['aboutText1b'];
+        $aboutText2b= $row['aboutText2b'];
+        $aboutText3b= $row['aboutText3b'];
+        $aboutText1c= $row['aboutText1c'];
+        $aboutText2c= $row['aboutText2c'];
+        $aboutText3c= $row['aboutText3c'];
+        $aboutText1d= $row['aboutText1d'];
+        $aboutText2d= $row['aboutText2d'];
+        $aboutText3d= $row['aboutText3d'];
+        $aboutText1e= $row['aboutText1e'];
+        $aboutText2e= $row['aboutText2e'];
+        $aboutText3e= $row['aboutText3e'];
+        $aboutText1 = $aboutText1b.$aboutText1c.$aboutText1d.$aboutText1e ;
+        $aboutText2 = $aboutText2b.$aboutText2c.$aboutText2d.$aboutText2e ;
+        $aboutText3 = $aboutText3b.$aboutText3c.$aboutText3d.$aboutText3e ;
+        $aboutHeading1 = $row['aboutHeading1'];
+        $aboutHeading2 = $row['aboutHeading2'];
+        $aboutHeading3 = $row['aboutHeading3'];
+    }
+$aboutQ  = mysqli_query($con,"SELECT
+ `aboutHeader`,
+ `aboutText`,
+ `aboutText1`,
+ `aboutText2`,
+ `aboutText3`,
+ `aboutText4`,
+ `aboutmain`,
+ `aboutmaindesc`
+ FROM `about` WHERE 1"); 
 while($row = mysqli_fetch_assoc($aboutQ)){
     $aboutHeader = $row['aboutHeader'];
-    $aboutText = $row['aboutText'];
+    $aboutText1 = $row['aboutText1'];
+    $aboutText2 = $row['aboutText2'];
+    $aboutText3 = $row['aboutText3'];
+    $aboutText4 = $row['aboutText4'];
+    $aboutText = $aboutText1.$aboutText2.$aboutText3.$aboutText4;
     $aboutmain = $row['aboutmain'];
     $aboutmaindesc = $row['aboutmaindesc'];
 }
@@ -94,6 +102,8 @@ while($row = mysqli_fetch_assoc($registration_info)){
 <html>
 
 <head>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
     <title>The Terminators</title>
     <link rel="shortcut icon" type="image/x-icon" href="./siteDetails/logo.png">
 
@@ -143,10 +153,10 @@ include_once ('./header.php');
                     <img src="img/about-3.jpeg">
                 </div>
             </div>
-            <div class="aboutBot text-left"><br>
+            <!-- <div class="aboutBot text-left"><br>
                 <h3><?php echo $aboutmain?></h3><br>
                 <p><?php echo $aboutmaindesc?></p>
-            </div>
+            </div> -->
         </div>
     </div>
 
@@ -188,6 +198,7 @@ include_once ('./header.php');
                 <div class="aqBoxRt">
                     <h4><?php echo $aboutHeading1 ?></h4>
                     <p><?php echo $aboutText1 ?></p>
+<a href="">Read More...</a>
                 </div>
             </div>
             <div class="aqBox">
@@ -197,6 +208,7 @@ include_once ('./header.php');
                 <div class="aqBoxRt">
                 <h4><?php echo $aboutHeading2 ?></h4>
                     <p><?php echo $aboutText2 ?></p>
+<a href="">Read More...</a>
                 </div>
             </div>
             <div class="aqBox">
@@ -206,6 +218,7 @@ include_once ('./header.php');
                 <div class="aqBoxRt">
                 <h4><?php echo $aboutHeading3 ?></h4>
                     <p><?php echo $aboutText3 ?></p>
+<a href="">Read More...</a>
                 </div>
             </div>
         </div>
