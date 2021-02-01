@@ -436,6 +436,12 @@ if(isset($_POST['about'])){
 if(isset($_POST['priorities'])){
     $heading = $_POST['heading'];
     $description = $_POST['description'];
+
+    $description1 = substr($description,0,255);
+    $description2 = substr($description,255,255);
+    $description3 = substr($description,512,255);
+    $description4 = substr($description,765,255);
+
     $firstHeading = $_POST['firstHeading'];
     $firstParagraph = $_POST['firstParagraph'];
     $secondHeading = $_POST['secondHeading'];
@@ -448,7 +454,19 @@ if(isset($_POST['priorities'])){
     $fifthParagraph = $_POST['fifthParagraph'];
     $sixthHeading = $_POST['sixthHeading'];
     $sixthParagraph = $_POST['sixthParagraph'];
-    $updateQ="UPDATE `priorities` SET `heading`='$heading',`description`='$description',`firstHeading`='$firstHeading',`firstParagraph`='$firstParagraph',`secondHeading`='$secondHeading',`secondParagraph`='$secondParagraph',`thirdHeading`='$thirdHeading',`thirdParagraph`='$thirdParagraph',`fourthHeading`='$fourthHeading',`fourthParagraph`='$fourthParagraph',`fifthHeading`='$fifthHeading',`fifthParagraph`='$fifthParagraph',`sixthHeading`='$sixthHeading',`sixthParagraph`='$sixthParagraph' WHERE 1";
+        $updateQ="UPDATE `priorities`
+    SET 
+    `heading`='$heading',
+    `priorities_description1`='$description1',
+    `priorities_description2`='$description2',
+    `priorities_description3`='$description3',
+    `priorities_description4`='$description4',
+    `firstHeading`='$firstHeading',
+    `firstParagraph`='$firstParagraph',
+    `secondHeading`='$secondHeading',
+    `secondParagraph`='$secondParagraph',
+    `thirdHeading`='$thirdHeading',
+    `thirdParagraph`='$thirdParagraph',`fourthHeading`='$fourthHeading',`fourthParagraph`='$fourthParagraph',`fifthHeading`='$fifthHeading',`fifthParagraph`='$fifthParagraph',`sixthHeading`='$sixthHeading',`sixthParagraph`='$sixthParagraph' WHERE 1";
     if($con->query($updateQ)){
         $status="Successfully Updated Priorities";
         return printMessage($status);
@@ -496,8 +514,68 @@ if(isset($_POST['addNewCategory'])){
 // function printMessage($str) {echo $str;}
 // printMessage($status);
 
+
+
+
+
+
+
+if(isset($_POST['updateNOB'])){
+    $status="FAILED to upload image";
+        $nobHeading = $_POST['nobHeading'];
+        $nobParagraph = $_POST['nobParagraph'];
+        $nobNumber = $_POST['nobNumber'];
+        $nobParagrapha = substr($nobParagraph,0,255);
+        $nobParagraphb = substr($nobParagraph,255,255);
+        $nobParagraphc = substr($nobParagraph,512,255);
+        $nobParagraphd = substr($nobParagraph,765,255);
+        $nob_heading = "nob_heading".$nobNumber;
+        $nobNumbera = "nob_paragraph".$nobNumber."a";
+        $nobNumberb = "nob_paragraph".$nobNumber."b";
+        $nobNumberc = "nob_paragraph".$nobNumber."c";
+        $nobNumberd = "nob_paragraph".$nobNumber."d";
+        $query="UPDATE `nature_of_business` SET 
+        $nob_heading= '$nobHeading',
+        $nobNumbera='$nobParagrapha',
+        $nobNumberb='$nobParagraphb',
+        $nobNumberc='$nobParagraphc',
+        $nobNumberd='$nobParagraphd'
+        WHERE 1";
+    
+        if($con -> query($query)){
+        }
+        else return printMessage($status);
+        if(upload_img("nob".$nobNumber.".png","nobImage","../NatureOfBusiness/")) return printMessage("Nature Of Business Image Successfully Uploaded"); 
+        else printMessage( "There was an Error Uploading the Image");
+    }
+
+
+
+
+
 }
 
+
+
+
+if(isset($_POST['updateNOBtext'])){
+    $nob_heading = $_POST['nob_heading'];
+    $nob_paragraph = $_POST['nob_paragraph'];
+    $nob_paragrapha = substr($nob_paragraph,0,255);
+    $nob_paragraphb = substr($nob_paragraph,255,255);
+    $nob_paragraphc = substr($nob_paragraph,512,255);
+    $nob_paragraphd = substr($nob_paragraph,765,255);
+
+$query="UPDATE `nature_of_business` SET `nob_heading`='$nob_heading',`nob_paragraph1`='$nobParagrapha',`nob_paragraph2`=[value-3]'$nob_paragraphb,`nob_paragraph3`='$nob_paragraphc',`nob_paragraph4`='$nob_paragraphd' WHERE 1";
+if($con->query($query)){
+$status="Successfully Edited Nature of busines text and heading";
+}
+else{
+$status="Something went wrong while editing Nature of business.";
+}
+
+
+}
 else{
     header("location:../index.php");
 }

@@ -65,7 +65,10 @@ while($row = mysqli_fetch_assoc($aboutQ)){
 }
 $registration_info  = mysqli_query($con,"SELECT 
 `heading`, 
-`description`, 
+`priorities_description1`, 
+`priorities_description2`, 
+`priorities_description3`, 
+`priorities_description4`, 
 `firstHeading`,
  `firstParagraph`, 
  `secondHeading`, 
@@ -81,7 +84,11 @@ $registration_info  = mysqli_query($con,"SELECT
    FROM `priorities` WHERE 1"); 
 while($row = mysqli_fetch_assoc($registration_info)){
     $heading = $row["heading"];
-    $description = $row["description"];
+    $priorities_description1 = $row["priorities_description1"];
+    $priorities_description2 = $row["priorities_description2"];
+    $priorities_description3 = $row["priorities_description3"];
+    $priorities_description4 = $row["priorities_description4"];
+    $description = $priorities_description1.$priorities_description2.$priorities_description3.$priorities_description4;
     $firstHeading = $row["firstHeading"];
     $firstParagraph = $row["firstParagraph"];
     $secondHeading = $row["secondHeading"];

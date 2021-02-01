@@ -41,6 +41,22 @@
             </a>
         </div>
         <div class="row-sidebar">
+                <a href="./updateNOBtext.php">
+                    <i class="fas fa-laptop icon-sidebar"></i>
+                    <div class="row-sidebar-text ">
+                        Nature of Business (Text)
+                    </div>
+                </a>
+            </div>
+        <div class="row-sidebar">
+            <a href="./updateNOB.php">
+                <i class="fab fa-slideshare icon-sidebar"></i>
+                <div class="row-sidebar-text ">
+                    Update Nature of Business
+                </div>
+            </a>
+        </div>
+        <div class="row-sidebar">
             <a href="./addNewCategory.php">
                 <i class="far fa-images icon-sidebar"></i>
                 <div class="row-sidebar-text ">

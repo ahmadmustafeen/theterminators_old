@@ -176,12 +176,18 @@ include_once('./header.php');
         <?php
       
 for ($i=1;$i<4;$i++){
-  $header = 'heading'.$i;
-  $texter = 'text'.$i;
-  $service_Q  = mysqli_query($con,"SELECT `$header`,`$texter` FROM `services` WHERE 1"); 
-  while($row = mysqli_fetch_assoc($service_Q)){
+  $header = 'nob_heading'.$i;
+  $textera = 'nob_paragraph'.$i.'a';
+  $texterb = 'nob_paragraph'.$i.'b';
+  $texterc = 'nob_paragraph'.$i.'c';
+  $texterd = 'nob_paragraph'.$i.'d';
+  $nature_of_business_Q  = mysqli_query($con,"SELECT `$header`,`$textera`,`$texterb`,`$texterc`,`$texterd` FROM `nature_of_business` WHERE 1"); 
+  while($row = mysqli_fetch_assoc($nature_of_business_Q)){
       $heading = $row[$header];
-      $text = $row[$texter];
+      $textera = $row[$textera];
+      $texterb = $row[$texterb];
+      $texterc = $row[$texterc];
+      $texterd = $row[$texterd];
   }
   if($heading == ''){
     ?>
@@ -193,10 +199,10 @@ for ($i=1;$i<4;$i++){
   else{
     ?>
             <div class="card">
-                <img class="card-img-top" src="./services/service<?php echo $i?>.png" alt="Card image cap">
+                <img class="card-img-top" src="./NatureOfBusiness/nob<?php echo $i?>.png" alt="Card image cap">
                 <div class="card-body" >
                     <h5 class="card-title"><?php echo $heading ?></h5>
-                    <p class="card-text" style="height:100px;overflow-y:scroll"><?php echo $text ?></p>
+                    <p class="card-text" style="height:100px;overflow-y:scroll"><?php echo $textera.$texterb.$texterc.$texterd ?></p>
                 </div>
             </div>
             <?php
