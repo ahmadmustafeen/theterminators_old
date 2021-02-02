@@ -54,9 +54,9 @@ include_once('./header.php');
 
     <div id="bgPic" class="text-center">
         <br><br><br><br>
-        <h2>OUR GALLARY</h2>
+        <h2>OUR GALLERY</h2>
         <br>
-        <h6><a href="index.php">HOME</a> <span>/</span> GALLARY</h6>
+        <h6><a href="index.php">HOME</a> <span>/</span> GALLERY</h6>
         <br><br><br><br>
     </div>
 

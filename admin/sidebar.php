@@ -24,6 +24,42 @@
                 </div>
             </a>
         </div>
+        
+        <div class="row-sidebar">
+            <a href="./addServiceText.php">
+                <i class="fas fa-laptop icon-sidebar"></i>
+                <div class="row-sidebar-text ">
+                   Add Service Text
+                </div>
+            </a>
+        </div>
+        
+        <div class="row-sidebar">
+            <a href="./deleteServiceText.php">
+                <i class="fas fa-laptop icon-sidebar"></i>
+                <div class="row-sidebar-text ">
+                Delete Service Text   
+                </div>
+
+            </a>
+        </div>
+        <div class="row-sidebar">
+            <a href="./addServiceImage.php">
+                <i class="fas fa-laptop icon-sidebar"></i>
+                <div class="row-sidebar-text ">
+                Upload Service Image   
+                </div>
+            </a>
+        </div>
+        
+        <div class="row-sidebar">
+            <a href="./addSocial.php">
+                <i class="fas fa-laptop icon-sidebar"></i>
+                <div class="row-sidebar-text ">
+                    Social Links
+                </div>
+            </a>
+        </div>
         <div class="row-sidebar">
             <a href="./contactInfo.php">
                 <i class="far fa-address-card icon-sidebar"></i>
