@@ -338,35 +338,23 @@ if(isset($_POST['addAboutUs'])){
     $aboutText1 = $_POST['aboutText1'];
     $aboutText2 = $_POST['aboutText2'];
     $aboutText3 = $_POST['aboutText3'];
+    $aboutHeading1 = $_POST['aboutHeading1'];
+    $aboutHeading2 = $_POST['aboutHeading2'];
+    $aboutHeading3 = $_POST['aboutHeading3'];
     $aboutText1a = substr($aboutText1,0,255);
     $aboutText1b = substr($aboutText1,255,255);
     $aboutText1c = substr($aboutText1,512,255);
     $aboutText1d = substr($aboutText1,765,255);
-
-
     $aboutText2a = substr($aboutText2,0,255);
     $aboutText2b = substr($aboutText2,255,255);
     $aboutText2c = substr($aboutText2,512,255);
     $aboutText2d = substr($aboutText2,765,255);
-
     $aboutText3a = substr($aboutText3,0,255);
     $aboutText3b = substr($aboutText3,255,255);
     $aboutText3c = substr($aboutText3,512,255);
     $aboutText3d = substr($aboutText3,765,255);
-
-
-
-    $aboutHeading1 = $_POST['aboutHeading1'];
-    $aboutHeading2 = $_POST['aboutHeading2'];
-    $aboutHeading3 = $_POST['aboutHeading3'];
-
-
-
-
-
-
-
-        $updateQ="UPDATE `addaboutus` SET 
+    
+    $updateQ="UPDATE `addaboutus` SET 
     `aboutText1b`='$aboutText1a',
     `aboutText2b`='$aboutText2a',
     `aboutText3b`='$aboutText3a',
@@ -382,15 +370,7 @@ if(isset($_POST['addAboutUs'])){
     `aboutHeading1`='$aboutHeading1',
     `aboutHeading2`='$aboutHeading2',
     `aboutHeading3`='$aboutHeading3'
- WHERE 1";
-
-
-
-
-
-
-
-
+    WHERE 1";
 
     if($con -> query($updateQ)){
         $status="Successfully Updated About us Info";
@@ -400,6 +380,42 @@ if(isset($_POST['addAboutUs'])){
         $status="Something went wrong while Updating about Info";
         return printMessage($status);
     }
+}
+
+
+
+if(isset($_POST['AddServiceText'])){
+    $serviceHeading= $_POST['serviceHeading'];
+    $serviceParagraph= $_POST['serviceParagraph'];
+    $serviceParagrapha = substr($serviceParagraph,0,255);
+    $serviceParagraphb = substr($serviceParagraph,255,255);
+    $serviceParagraphc = substr($serviceParagraph,512,255);
+    $serviceParagraphd = substr($serviceParagraph,765,255);
+
+$query= "INSERT INTO `services_text`( `service_paragraph1`, `service_paragraph2`, `service_paragraph3`, `service_paragraph4`, `service_heading`) VALUES
+ ('$serviceParagrapha','$serviceParagraphb','$serviceParagraphc','$serviceParagraphd','$serviceHeading')";
+ if($con->query($query)){
+     $status="Successfully added a new Service";
+     return printMessage($status);
+ }
+ else{
+     $status="Something went wrong while adding the service";
+    return printMessage($status);
+ }
+}
+
+if(isset($_POST['deleteServiceText'])){
+$service_id=$_POST['service_id'];
+
+$query= "DELETE FROM `services_text` WHERE service_id = '$service_id'";
+ if($con->query($query)){
+     $status="Successfully delete the Service";
+     return printMessage($status);
+ }
+ else{
+     $status="Something went wrong while deleting the service";
+    return printMessage($status);
+ }
 }
 
 if(isset($_POST['about'])){
