@@ -392,30 +392,38 @@ if(isset($_POST['AddServiceText'])){
     $serviceParagraphc = substr($serviceParagraph,512,255);
     $serviceParagraphd = substr($serviceParagraph,765,255);
 
-$query= "INSERT INTO `services_text`( `service_paragraph1`, `service_paragraph2`, `service_paragraph3`, `service_paragraph4`, `service_heading`) VALUES
- ('$serviceParagrapha','$serviceParagraphb','$serviceParagraphc','$serviceParagraphd','$serviceHeading')";
- if($con->query($query)){
-     $status="Successfully added a new Service";
-     return printMessage($status);
- }
- else{
-     $status="Something went wrong while adding the service";
-    return printMessage($status);
- }
+    $query= "INSERT INTO `services_text`( `service_paragraph1`, `service_paragraph2`, `service_paragraph3`, `service_paragraph4`, `service_heading`) VALUES
+    ('$serviceParagrapha','$serviceParagraphb','$serviceParagraphc','$serviceParagraphd','$serviceHeading')";
+    if($con->query($query)){
+        $status="Successfully added a new Service";
+        return printMessage($status);
+    }
+    else{
+        $status="Something went wrong while adding the service";
+        return printMessage($status);
+    }
 }
 
-if(isset($_POST['deleteServiceText'])){
-$service_id=$_POST['service_id'];
 
-$query= "DELETE FROM `services_text` WHERE service_id = '$service_id'";
- if($con->query($query)){
-     $status="Successfully delete the Service";
-     return printMessage($status);
- }
- else{
-     $status="Something went wrong while deleting the service";
-    return printMessage($status);
- }
+
+
+
+
+
+
+
+if(isset($_POST['deleteServiceText'])){
+    $service_id=$_POST['service_id'];
+
+    $query= "DELETE FROM `services_text` WHERE service_id = '$service_id'";
+    if($con->query($query)){
+        $status="Successfully delete the Service";
+        return printMessage($status);
+    }
+    else{
+        $status="Something went wrong while deleting the service";
+        return printMessage($status);
+    }
 }
 
 if(isset($_POST['about'])){
@@ -563,13 +571,12 @@ if(isset($_POST['updateNOB'])){
         else return printMessage($status);
         if(upload_img("nob".$nobNumber.".png","nobImage","../NatureOfBusiness/")) return printMessage("Nature Of Business Image Successfully Uploaded"); 
         else printMessage( "There was an Error Uploading the Image");
-    }
-
-
-
-
-
 }
+
+
+
+
+
 
 
 
@@ -582,13 +589,46 @@ if(isset($_POST['updateNOBtext'])){
     $nob_paragraphc = substr($nob_paragraph,512,255);
     $nob_paragraphd = substr($nob_paragraph,765,255);
 
-$query="UPDATE `nature_of_business` SET `nob_heading`='$nob_heading',`nob_paragraph1`='$nobParagrapha',`nob_paragraph2`=[value-3]'$nob_paragraphb,`nob_paragraph3`='$nob_paragraphc',`nob_paragraph4`='$nob_paragraphd' WHERE 1";
-if($con->query($query)){
-$status="Successfully Edited Nature of busines text and heading";
+    $query="UPDATE `nature_of_business` SET `nob_heading`='$nob_heading',`nob_paragraph1`='$nobParagrapha',`nob_paragraph2`=[value-3]'$nob_paragraphb,`nob_paragraph3`='$nob_paragraphc',`nob_paragraph4`='$nob_paragraphd' WHERE 1";
+    if($con->query($query)){
+    $status="Successfully Edited Nature of busines text and heading";
+    }
+    else{
+    $status="Something went wrong while editing Nature of business.";
+    }
 }
-else{
-$status="Something went wrong while editing Nature of business.";
+
+
+
+
+
+$exist = false;
+if(isset($_POST['addServiceImage'])){
+    $service_image_name = $_POST['service_image_name'];
+    $service_id = $_POST['service_id'];
+
+    $service_image_name_Q  = mysqli_query($con,"SELECT * FROM `services_details` WHERE image_name = '$service_image_name'");
+        while($row = mysqli_fetch_assoc($service_image_name_Q)){
+            $status="Kindly Change the name of the Service image and try again...";
+            $exist = true;
+        }
+        if($exist) return printMessage($status);
+    $sql = "INSERT INTO `services_details`( `image_name`,`service_id`) VALUES ('$service_image_name','$service_id')";
+    if($con -> query($sql)){
+        $event_Q  = mysqli_query($con,"SELECT * FROM `services_details` WHERE 1");
+        while($row = mysqli_fetch_assoc($event_Q)) $event_id = $row['image_id'];  
+    }
+    else return printMessage($status);
+    
+    if(upload_img("servicerefurb".$event_id.".png","service","../services/")) {
+        $status= "service Image Successfully Uploaded"; 
+        return printMessage($status); 
+    } 
+    else { $status= "There was an Error Uploading the Image";
+        printMessage($status);
+    }
 }
+
 
 
 }

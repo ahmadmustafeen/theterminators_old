@@ -26,7 +26,7 @@
         </div>
         
         <div class="row-sidebar">
-            <a href="./addServiceText.php">
+            <a href="./AddServiceText.php">
                 <i class="fas fa-laptop icon-sidebar"></i>
                 <div class="row-sidebar-text ">
                    Add Service Text
