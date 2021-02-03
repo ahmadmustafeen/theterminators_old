@@ -30,12 +30,12 @@ while($row = mysqli_fetch_assoc($social_Q)){
                 <a href="about.php">
                     <li><i class="fas fa-chevron-right"></i> &nbsp;&nbsp; About Us</li>
                 </a>
-                <a href="service.php">
+                <a href="services.php">
                     <li><i class="fas fa-chevron-right"></i> &nbsp;&nbsp; Our Services</li>
                 </a>
-                <a href="blogs.php">
+                <!-- <a href="blogs.php">
                     <li><i class="fas fa-chevron-right"></i> &nbsp;&nbsp; Our Blogs</li>
-                </a>
+                </a> -->
                 <a href="event.php">
                     <li><i class="fas fa-chevron-right"></i> &nbsp;&nbsp; Our Event</li>
                 </a>

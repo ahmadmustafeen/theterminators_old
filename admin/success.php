@@ -631,6 +631,27 @@ if(isset($_POST['addServiceImage'])){
 
 
 
+
+
+if(isset($_POST['deleteServiceImage'])){
+    $image_id=$_POST['image_id'];
+
+    $query= "DELETE FROM `services_details` WHERE image_id = '$image_id'";
+    if($con->query($query)){
+        $status="Successfully delete the Service image";
+        return printMessage($status);
+    }
+    else{
+        $status="Something went wrong while deleting the service image";
+        return printMessage($status);
+    }
+}
+
+
+
+
+
+
 }
 else{
     header("location:../index.php");

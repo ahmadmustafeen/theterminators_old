@@ -51,6 +51,14 @@
                 </div>
             </a>
         </div>
+<div class="row-sidebar">
+            <a href="./deleteServiceImage.php">
+                <i class="fas fa-laptop icon-sidebar"></i>
+                <div class="row-sidebar-text ">
+                Delete Service Image   
+                </div>
+            </a>
+        </div>
         
         <div class="row-sidebar">
             <a href="./addSocial.php">

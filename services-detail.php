@@ -8,7 +8,7 @@ if(isset($_GET['service'])){
 
 
 
-$gallery_info  = mysqli_query($con,"SELECT `image_id` FROM `services_images` WHERE service_id='$service'"); 
+$gallery_info  = mysqli_query($con,"SELECT `image_id` FROM `services_details` WHERE service_id='$service'"); 
 $services_header="Service heading";
 $services_text1="Some Paragraph about the service";
 $services_text2="";
@@ -97,7 +97,7 @@ while($row = mysqli_fetch_assoc($gallery_info)){
     }
 
     if($i===1||$i===2){?>
-    <img src="./Gallery/gallery<?php echo $gallery_id ?>.png" id='img<?php echo $gallery_id; ?>'  onClick="onPRess(this.id)">
+    <img src="./services/servicerefurb<?php echo $gallery_id ?>.png" id='img<?php echo $gallery_id; ?>'  onClick="onPRess(this.id)">
     <?php }
         if($i===3){
             ?>
@@ -161,7 +161,7 @@ if($j===0){
     ?>
     
     <div style="width:100%;display:flex;flex-direction:row;justify-content:center;align-items:center;padding-top:50px;padding-bottom:50px">
-<a href="./gallery.php"><button style="margin:auto">Back To Categories </button></a>
+<a href="./services.php"><button style="margin:auto">Back To Services </button></a>
 </div>
     <div id="myModal" class="modal">
         <span class="close">&times;</span>
