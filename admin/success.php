@@ -33,19 +33,30 @@ if(isset($_POST['home'])){
     $servicesParagraph = $_POST['serviceParagraph'];
     $contactParagraph = $_POST['contactParagraph'];
     $gettingStarted = $_POST['gettingStarted'];
+  
+    $servicesParagrapha = substr($servicesParagraph,0,255);
+    $servicesParagraphb = substr($servicesParagraph,255,255);
+    $servicesParagraphc = substr($servicesParagraph,512,255);
+    $servicesParagraphd = substr($servicesParagraph,765,255);
+
+
+
+
     $contactQ="UPDATE `contact` SET
      `contact_header`='$contactHeading',
      `contact_text1`= '$contactParagraph' WHERE 1";
     
-    $servicesQ="UPDATE `service` SET 
-    `services_header`='$servicesHeading',
-    `services_text1`='$servicesParagraph' WHERE 1";
+    $servicesQ="UPDATE `service` SET `services_header`='$servicesHeading',`services_text1`='$servicesParagrapha',`services_text2`='$servicesParagraphb',`services_text3`='$servicesParagraphc',`services_text4`='$servicesParagraphd' WHERE 1";
     
     $gettingStartedQ="UPDATE `getting_started` SET `getting_s_t`='$gettingStarted' WHERE 1";
     if($con->query($contactQ)&&$con->query($servicesQ)&&$con->query($gettingStartedQ)){
+    // if($con->query($servicesQ)){
         $status="Info Successfully Updated!";
         return printMessage($status);
-    }    
+    }else{
+ $status="Info Failed to Update!";
+        return printMessage($status);
+}    
 }
 
 // updaing gallery image
@@ -387,12 +398,17 @@ if(isset($_POST['addAboutUs'])){
 if(isset($_POST['AddServiceText'])){
     $serviceHeading= $_POST['serviceHeading'];
     $serviceParagraph= $_POST['serviceParagraph'];
+    $serviceParagrapha="";
+    $serviceParagraphb="";
+    $serviceParagraphc="";
+    $serviceParagraphd="";
     $serviceParagrapha = substr($serviceParagraph,0,255);
     $serviceParagraphb = substr($serviceParagraph,255,255);
     $serviceParagraphc = substr($serviceParagraph,512,255);
     $serviceParagraphd = substr($serviceParagraph,765,255);
+echo strlen($serviceParagrapha);
 
-    $query= "INSERT INTO `services_text`( `service_paragraph1`, `service_paragraph2`, `service_paragraph3`, `service_paragraph4`, `service_heading`) VALUES
+    $query= "INSERT INTO `services_text`( `service_paragraph1`, `service_paragraph2`, `service_paragraph3`, `service_paragraph4`, `service_heading`) VALUES 
     ('$serviceParagrapha','$serviceParagraphb','$serviceParagraphc','$serviceParagraphd','$serviceHeading')";
     if($con->query($query)){
         $status="Successfully added a new Service";

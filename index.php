@@ -37,6 +37,11 @@ while($row = mysqli_fetch_assoc($sliderQ)){
 $registration_info  = mysqli_query($con,"SELECT 
 `heading`, 
 `description`, 
+
+`priorities_description1`, 
+`priorities_description2`, 
+`priorities_description3`, 
+`priorities_description4`, 
 `firstHeading`,
  `firstParagraph`, 
  `secondHeading`, 
@@ -51,8 +56,12 @@ $registration_info  = mysqli_query($con,"SELECT
   `sixthParagraph`
    FROM `priorities` WHERE 1"); 
 while($row = mysqli_fetch_assoc($registration_info)){
-    $heading = $row["heading"];
-    $description = $row["description"];
+    $priorities_heading = $row["heading"];
+    $priorities_description1 = $row["priorities_description1"];
+    $priorities_description2 = $row["priorities_description2"];
+    $priorities_description3 = $row["priorities_description3"];
+    $priorities_description4 = $row["priorities_description4"];
+    // $description = $row["description"];
     $firstHeading = $row["firstHeading"];
     $firstParagraph = $row["firstParagraph"];
     $secondHeading = $row["secondHeading"];
@@ -66,6 +75,7 @@ while($row = mysqli_fetch_assoc($registration_info)){
     $sixthHeading = $row["sixthHeading"];
     $sixthParagraph = $row["sixthParagraph"];
 }
+$description = $priorities_description1.$priorities_description2.$priorities_description3.$priorities_description4;
 
 ?>
 
@@ -216,7 +226,7 @@ for ($i=1;$i<4;$i++){
 
     <div class="aboutHome">
         <br><br><br><br>
-        <h2><?php echo $heading?></h2>
+        <h2><?php echo $priorities_heading?></h2>
         <p><?php echo $description ?></p><br>
         <div class="aboutLow">
             <div class="aboutDabba">

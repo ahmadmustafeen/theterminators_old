@@ -175,19 +175,19 @@ include_once ('./header.php');
         <p><?php echo $description ?></p><br>
         <div class="aboutLow">
             <div class="aboutDabba">
-                <i class="fas fa-mobile-alt phone"></i>
+               <i class="fas fa-users-cog"></i>
                 <p><span><?php echo $firstHeading?> </span><br><?php echo $firstParagraph?></p>
-                <i class="fas fa-users"></i>
+               <i class="fas fa-users-cog"></i>
                 <p><span><?php echo $secondHeading?> </span><br><?php echo $secondParagraph?></p>
-                <i class="fas fa-cogs"></i>
+                <i class="fas fa-users-cog"></i>
                 <p><span><?php echo $thirdHeading?> </span><br><?php echo $thirdParagraph?></p>
             </div>
             <div class="aboutDabba">
-                <i class="fas fa-mobile-alt phone"></i>
+               <i class="fas fa-users-cog"></i>
                 <p><span><?php echo $fourthHeading?> </span><br><?php echo $fourthParagraph?></p>
-                <i class="fas fa-users"></i>
+                <i class="fas fa-users-cog"></i>
                 <p><span><?php echo $fifthHeading?> </span><br><?php echo $fifthParagraph?></p>
-                <i class="fas fa-cogs"></i>
+               <i class="fas fa-users-cog"></i>
                 <p><span><?php echo $sixthHeading?> </span><br><?php echo $sixthParagraph?></p>
             </div>
         </div>

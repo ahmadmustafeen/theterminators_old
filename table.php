@@ -2,17 +2,21 @@
 
 <?php 
 include_once('./adminz/connection.php');
-$service_info  = mysqli_query($con,"SELECT `service_id`, `service_heading` FROM `services_text` WHERE 1"); 
-$service_Q  = mysqli_query($con,"SELECT * FROM `service` WHERE 1");
-while($row = mysqli_fetch_assoc($service_Q)){
-    $services_header = $row['services_header'];
-    $services_text1 = $row['services_text1'];
-    $services_text2 = $row['services_text2'];
-    $services_text3 = $row['services_text3'];
-    $services_text4 = $row['services_text4'];
+
+
+
+$i=1;
+if(isset($_GET['id']))$i=$_GET['id'];
+
+
+if($i==1){
+$table_name="TOOLS";
+}
+else if($i==2){
+$table_name="LEADERSHIP";
 }
 
-
+$service_info  = mysqli_query($con,"SELECT `service_id`, `service_heading` FROM `services_text` WHERE 1"); 
 ?>
 
 <!DOCTYPE html>
@@ -59,9 +63,9 @@ include_once('./header.php');
 
     <div id="bgPic" class="text-center">
         <br><br><br><br>
-        <h2>OUR SERVICES</h2>
+        <h2>OUR <?php echo $table_name?></h2>
         <br>
-        <h6><a href="index.php">HOME</a> <span>/</span> SERVICES</h6>
+        <h6><a href="index.php">HOME</a> <span>/</span> <?php echo $table_name?></h6>
         <br><br><br><br>
     </div>
 
@@ -69,11 +73,6 @@ include_once('./header.php');
 
 
     <br>
-  <div class="serHead text-center">
-            <h6>OUR SERVICES</h6>
-            <h2><?php echo $services_header ?></h2>
-            <p><?php echo $services_text1.$services_text2.$services_text3.$services_text4 ?></p>
-        </div><br>
 <div class="services-tag">
 <?php
 while($row = mysqli_fetch_assoc($service_info)){
