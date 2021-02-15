@@ -86,6 +86,14 @@ $description = $priorities_description1.$priorities_description2.$priorities_des
 
 <head>
     <title>The Terminators</title>
+
+
+<script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">  -->
+
+
     <link rel="shortcut icon" type="image/x-icon" href="./siteDetails/logo.png">
 
     <link rel="stylesheet" type="text/css" href="./bootstrap/bootstrap.min.css">
@@ -173,7 +181,6 @@ include_once('./header.php');
             </a>
         </div>
     </div>
-
     <div class="service">
         <br><br>
         <div class="serHead text-center">
@@ -254,9 +261,173 @@ for ($i=1;$i<4;$i++){
             <p><i class="fas fa-home"></i> &nbsp; <?php echo $getting_s_t ?></p>
         </div><br>
         <div class="parallexBut">
-            <a href="contact.html" class="construct-btn">start a project</a>
+            <a href="contact.php" class="construct-btn">start a project</a>
         </div><br>
     </div>
+
+
+
+<!-- SLIDER -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+<!-- <div class="brands">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="brands_slider_container">
+                    <div class="owl-carousel owl-theme brands_slider">
+                        <div class="owl-item">
+                            <div class="brands_item d-flex flex-column justify-content-center"><img src="./Gallery/gallery1.png" alt=""></div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="brands_item d-flex flex-column justify-content-center"><img src="./Gallery/gallery1.png" alt=""></div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="brands_item d-flex flex-column justify-content-center"><img src="./Gallery/gallery1.png" alt=""></div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="brands_item d-flex flex-column justify-content-center"><img src="./Gallery/gallery1.png" alt=""></div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="brands_item d-flex flex-column justify-content-center"><img src="./Gallery/gallery1.png" alt=""></div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="brands_item d-flex flex-column justify-content-center"><img src="./Gallery/gallery1.png" alt=""></div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="brands_item d-flex flex-column justify-content-center"><img src="./Gallery/gallery1.png" alt=""></div>
+                        </div>
+                        <div class="owl-item">
+                            <div class="brands_item d-flex flex-column justify-content-center"><img src="./Gallery/gallery1.png" alt=""></div>
+                        </div>
+                    </div> 
+                    <div class="brands_nav brands_prev"><i class="fas fa-chevron-left"></i></div>
+                    <div class="brands_nav brands_next"><i class="fas fa-chevron-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<script>
+$(document).ready(function(){
+
+if($('.brands_slider').length)
+{
+var brandsSlider = $('.brands_slider');
+
+brandsSlider.owlCarousel(
+{
+loop:true,
+autoplay:true,
+autoplayTimeout:1000,
+nav:false,
+dots:false,
+autoWidth:true,
+items:4,
+margin:42
+});
+
+if($('.brands_prev').length)
+{
+var prev = $('.brands_prev');
+prev.on('click', function()
+{
+brandsSlider.trigger('prev.owl.carousel');
+});
+}
+
+if($('.brands_next').length)
+{
+var next = $('.brands_next');
+next.on('click', function()
+{
+brandsSlider.trigger('next.owl.carousel');
+});
+}
+}
+
+
+});</script>
+<style>
+
+.brands {
+    width: 100%;
+    padding-top: 90px;
+    padding-bottom: 90px;
+
+}
+
+.brands_slider_container {
+    height: 130px;
+    border: solid 1px #e8e8e8;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    padding-left: 97px;
+    padding-right: 97px;
+    /* background: #fff */
+}
+
+.brands_slider {
+    height: 100%;
+    margin-top: 50px
+}
+
+.brands_item {
+    height: 200px
+}
+
+.brands_item img {
+    max-width: 100%
+}
+
+.brands_nav {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding: 5px;
+    cursor: pointer
+}
+
+.brands_nav i {
+    color: #e5e5e5;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease
+}
+
+.brands_nav:hover i {
+    color: #676767
+}
+
+.brands_prev {
+    left: 40px
+}
+
+.brands_next {
+    right: 40px
+}
+</style>
+
+
+
+
+
+<!-- END SLIDER -->
+
+
 
     <div class="contactHome clearfix">
         <div class="contactHomeLt">
@@ -293,82 +464,14 @@ for ($i=1;$i<4;$i++){
     </div><br><br>
 
 
-
-<!--    
-    <div class="blogsHome text-center">
-        <br><br><br>
-        <h6>LATEST NEWS</h6>
-        <h2>Our Recent Events</h2>
-        <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a
-            search for 'lorem ipsum' will uncover many web sites.</p>
-        <br><br>
-        <div class="blogsFlexBox text-left">
-            <div class="card">
-                <img class="card-img-top" src="img/blog-1.jpeg" alt="Card image">
-                <div class="card-body">
-                    <h4 class="card-title">Construction Conference 2017</h4>
-                    <hr>
-                    <p class="card-text"> <i class="fas fa-user"></i> Admin &nbsp;&nbsp;&nbsp; <i
-                            class="fas fa-calendar-week"></i> 21.11.2017 &nbsp;&nbsp;&nbsp; <i
-                            class="far fa-comment-dots"></i> 12 comments</p>
-                    <hr>
-                    <p class="card-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusa nt ium
-                        dolorem que laudantium totam rem aperiam</p>
-                </div>
-            </div><br>
-
-            <div class="card">
-                <img class="card-img-top" src="img/blog-2.jpeg" alt="Card image">
-                <div class="card-body">
-                    <h4 class="card-title">Construction Conference 2017</h4>
-                    <hr>
-                    <p class="card-text"> <i class="fas fa-user"></i> Admin &nbsp;&nbsp;&nbsp; <i
-                            class="fas fa-calendar-week"></i> 21.11.2017 &nbsp;&nbsp;&nbsp; <i
-                            class="far fa-comment-dots"></i> 12 comments</p>
-                    <hr>
-                    <p class="card-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusa nt ium
-                        dolorem que laudantium totam rem aperiam</p>
-                </div>
-            </div><br>
-
-            <div class="card">
-                <img class="card-img-top" src="img/blog-3.jpeg" alt="Card image">
-                <div class="card-body">
-                    <h4 class="card-title">Construction Conference 2017</h4>
-                    <hr>
-                    <p class="card-text"> <i class="fas fa-user"></i> Admin &nbsp;&nbsp;&nbsp; <i
-                            class="fas fa-calendar-week"></i> 21.11.2017 &nbsp;&nbsp;&nbsp; <i
-                            class="far fa-comment-dots"></i> 12 comments</p>
-                    <hr>
-                    <p class="card-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusa nt ium
-                        dolorem que laudantium totam rem aperiam</p>
-                </div>
-            </div>
-        </div>
-        <br><br><br>
-    </div> -->
-
-
-    <!-- <div class="sponsers">
-        <br><br>
-        <div class="sponserDiv">
-            <img src="img/brand-1.png">
-            <img src="img/brand-2.png">
-        </div>
-        <div class="sponserDiv">
-            <img src="img/brand-3.png">
-            <img src="img/brand-4.png">
-        </div>
-        <br><br><br>
-    </div> -->
-
    
 <?php
 include_once('./footer.php');
 ?>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-    </script>
+
+
+
+  
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
     </script>

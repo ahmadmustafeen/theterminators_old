@@ -10,7 +10,7 @@ if(isset($_GET['id']))$i=$_GET['id'];
 
 
 if($i==1){
-$table_name="TOOLS";
+$table_name="ORGANOGRAM";
 }
 else if($i==2){
 $table_name="LEADERSHIP";
@@ -70,30 +70,9 @@ include_once('./header.php');
     </div>
 
     <br>
-    <table class="table">
-        <tr>
-            <td>
-                <h4>Serial Number</h4>
-            </td>
-            <td>
-                <h4>Instrument Name</h4>
-            </td>
-            <td>
-                <h4>Instrument Quantity</h4>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <p>1</p>
-            </td>
-            <td>
-                <p>Drilling machine</p>
-            </td>
-            <td>
-                <p>Instrument Quantity</p>
-            </td>
-        </tr>
-    </table>
+    <div class="image-displayer">
+        <img src="./organogram/organogram.png" />
+    </div>
 
    
   
@@ -164,22 +143,28 @@ span.onclick = function() {
     color:black;
     width:fit-content
 }
- .table {
-        background-color: black;
-    }
-
-    .table td {
-        background-color: white;
+    .image-displayer {
+        display: flex;
         justify-content: center;
         align-items: center;
-        text-align: center;
     }
 
+    .image-displayer img {
+        width: 80%;
+        height: 80vh;
+    }
 
 @media all and (max-width: 480px) {
-.table h4{
-font-size:14px
-}
+    .image-displayer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image-displayer img {
+        width: 80%;
+        height: 40vh;
+    }
 }
 </style>
 

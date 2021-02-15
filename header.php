@@ -53,11 +53,12 @@ while($row = mysqli_fetch_assoc($social_Q)){
       <li class="nav-item">
         <a class="nav-link" href="index.php">HOME</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="register.php">REGISTRATION</a>
-      </li>
+     
       <li class="nav-item">
         <a class="nav-link" href="about.php">ABOUT</a>
+      </li>
+ <li class="nav-item">
+        <a class="nav-link" href="register.php">REGISTRATION</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="services.php">SERVICES</a>
