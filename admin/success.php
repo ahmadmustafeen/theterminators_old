@@ -701,6 +701,36 @@ if(isset($_POST['deleteServiceImage'])){
 
 
 
+if(isset($_POST['deleteTools'])){
+    $image_id=$_POST['image_id'];
+    $query= "DELETE FROM `tools` WHERE id = '$image_id'";
+    if($con->query($query)){
+        $status="Successfully delete the existing Tool";
+        return printMessage($status);
+    }
+    else{
+        $status="Something went wrong while deleting the existing Tool";
+        return printMessage($status);
+    }
+}
+
+
+
+
+
+if(isset($_POST['deleteProfessional'])){
+    $image_id=$_POST['image_id'];
+    $query= "DELETE FROM `professional_Skills` WHERE id = '$image_id'";
+    if($con->query($query)){
+        $status="Successfully delete the existing Professional Skills";
+        return printMessage($status);
+    }
+    else{
+        $status="Something went wrong while deleting Professional Skills";
+        return printMessage($status);
+    }
+}
+
 
 
 
