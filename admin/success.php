@@ -532,6 +532,42 @@ if(isset($_POST['addSocial'])){
 }
 
 
+
+if(isset($_POST['addProfessional'])){
+    $name = $_POST['name'];
+    $qualification = $_POST['qualification'];
+    $updateQ="INSERT INTO `professional_Skills`( `name`, `qualification`) VALUES ('$name','$qualification')";
+    if($con->query($updateQ)){
+        $status="Successfully Added a new Skilled Person";
+        return printMessage($status);
+    }
+    else{
+        $status="Something went wrong while adding a new skilled Person";
+        return printMessage($status);
+    }
+}
+
+
+if(isset($_POST['addTools'])){
+    $name = $_POST['name'];
+    $quantity = $_POST['quantity'];
+    $updateQ="INSERT INTO `tools`(`name`, `quantity`) VALUES ('$name','$quantity')";
+    if($con->query($updateQ)){
+        $status="Successfully Added a new Tool";
+        return printMessage($status);
+    }
+    else{
+        $status="Something went wrong while adding a new Tool ";
+        return printMessage($status);
+    }
+}
+
+
+
+
+
+
+
 if(isset($_POST['addNewCategory'])){
     $exist = false;
     $category_name = $_POST['category_name'];

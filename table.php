@@ -13,7 +13,7 @@ if($i==1){
 $table_name="TOOLS";
 }
 else if($i==2){
-$table_name="LEADERSHIP";
+$table_name="PROFESSIONAL STRENGTH";
 }
 
 $service_info  = mysqli_query($con,"SELECT `service_id`, `service_heading` FROM `services_text` WHERE 1"); 

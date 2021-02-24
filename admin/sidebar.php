@@ -59,7 +59,38 @@
                 </div>
             </a>
         </div>
-        
+          <div class="row-sidebar">
+            <a href="./addProfessional.php">
+                <i class="fab fa-slideshare icon-sidebar"></i>
+                <div class="row-sidebar-text ">
+                    Add Professional Strength
+                </div>
+            </a>
+        </div>
+ <div class="row-sidebar">
+            <a href="./deleteProfessional.php">
+                <i class="fab fa-slideshare icon-sidebar"></i>
+                <div class="row-sidebar-text ">
+                    Delete Professional Strength
+                </div>
+            </a>
+      </div>
+  <div class="row-sidebar">
+            <a href="./addTools.php">
+                <i class="fab fa-slideshare icon-sidebar"></i>
+                <div class="row-sidebar-text ">
+                    Add Tools
+                </div>
+            </a>
+        </div>  
+ <div class="row-sidebar">
+            <a href="./deleteTools.php">
+                <i class="fab fa-slideshare icon-sidebar"></i>
+                <div class="row-sidebar-text ">
+                    Delete Tools
+                </div>
+            </a>
+        </div>
         <div class="row-sidebar">
             <a href="./addSocial.php">
                 <i class="fas fa-laptop icon-sidebar"></i>
