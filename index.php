@@ -181,6 +181,10 @@ include_once('./header.php');
             </a>
         </div>
     </div>
+
+
+
+
     <div class="service">
         <br><br>
         <div class="serHead text-center">
@@ -192,42 +196,43 @@ include_once('./header.php');
       
         <?php
       
-for ($i=1;$i<4;$i++){
-  $header = 'nob_heading'.$i;
-  $textera = 'nob_paragraph'.$i.'a';
-  $texterb = 'nob_paragraph'.$i.'b';
-  $texterc = 'nob_paragraph'.$i.'c';
-  $texterd = 'nob_paragraph'.$i.'d';
-  $nature_of_business_Q  = mysqli_query($con,"SELECT `$header`,`$textera`,`$texterb`,`$texterc`,`$texterd` FROM `nature_of_business` WHERE 1"); 
-  while($row = mysqli_fetch_assoc($nature_of_business_Q)){
-      $heading = $row[$header];
-      $textera = $row[$textera];
-      $texterb = $row[$texterb];
-      $texterc = $row[$texterc];
-      $texterd = $row[$texterd];
-  }
-  if($heading == ''){
-    ?>
-            <div class="card" style="border:none;">
+        for ($i=1;$i<4;$i++){
+        $header = 'nob_heading'.$i;
+        $textera = 'nob_paragraph'.$i.'a';
+        $texterb = 'nob_paragraph'.$i.'b';
+        $texterc = 'nob_paragraph'.$i.'c';
+        $texterd = 'nob_paragraph'.$i.'d';
+        $nature_of_business_Q  = mysqli_query($con,"SELECT `$header`,`$textera`,`$texterb`,`$texterc`,`$texterd` FROM `nature_of_business` WHERE 1"); 
+        while($row = mysqli_fetch_assoc($nature_of_business_Q)){
+            $heading = $row[$header];
+            $textera = $row[$textera];
+            $texterb = $row[$texterb];
+            $texterc = $row[$texterc];
+            $texterd = $row[$texterd];
+        }
+        if($heading == ''){
+            ?>
+                    <div class="card" style="border:none;">
 
-            </div>
-            <?php
-  }
-  else{
-    ?>
-            <div class="card">
-                <img class="card-img-top" src="./NatureOfBusiness/nob<?php echo $i?>.png" alt="Card image cap">
-                <div class="card-body" >
-                    <h5 class="card-title"><?php echo $heading ?></h5>
-                    <p class="card-text" style="height:100px;overflow-y:scroll"><?php echo $textera.$texterb.$texterc.$texterd ?></p>
-                </div>
-            </div>
-            <?php
+                    </div>
+                    <?php
+        }
+        else{
+            ?>
+                    <div class="card">
+                        <img class="card-img-top" src="./NatureOfBusiness/nob<?php echo $i?>.png" alt="Card image cap">
+                        <div class="card-body" >
+                            <h5 class="card-title"><?php echo $heading ?></h5>
+                            <p class="card-text" style="height:100px;overflow-y:scroll"><?php echo $textera.$texterb.$texterc.$texterd ?></p>
+                        </div>
+                    </div>
+                    <?php
 
-  }
-  
-}
-?>  </div>
+        }
+        
+        }
+    ?> 
+    </div>
         <br><br><br>
     </div>
 
@@ -265,170 +270,6 @@ for ($i=1;$i<4;$i++){
         </div><br>
     </div>
 
-
-
-<!-- SLIDER -->
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-<!-- <div class="brands">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="brands_slider_container">
-                    <div class="owl-carousel owl-theme brands_slider">
-                        <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center"><img src="./Gallery/gallery1.png" alt=""></div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center"><img src="./Gallery/gallery1.png" alt=""></div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center"><img src="./Gallery/gallery1.png" alt=""></div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center"><img src="./Gallery/gallery1.png" alt=""></div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center"><img src="./Gallery/gallery1.png" alt=""></div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center"><img src="./Gallery/gallery1.png" alt=""></div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center"><img src="./Gallery/gallery1.png" alt=""></div>
-                        </div>
-                        <div class="owl-item">
-                            <div class="brands_item d-flex flex-column justify-content-center"><img src="./Gallery/gallery1.png" alt=""></div>
-                        </div>
-                    </div> 
-                    <div class="brands_nav brands_prev"><i class="fas fa-chevron-left"></i></div>
-                    <div class="brands_nav brands_next"><i class="fas fa-chevron-right"></i></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
-<script>
-$(document).ready(function(){
-
-if($('.brands_slider').length)
-{
-var brandsSlider = $('.brands_slider');
-
-brandsSlider.owlCarousel(
-{
-loop:true,
-autoplay:true,
-autoplayTimeout:1000,
-nav:false,
-dots:false,
-autoWidth:true,
-items:4,
-margin:42
-});
-
-if($('.brands_prev').length)
-{
-var prev = $('.brands_prev');
-prev.on('click', function()
-{
-brandsSlider.trigger('prev.owl.carousel');
-});
-}
-
-if($('.brands_next').length)
-{
-var next = $('.brands_next');
-next.on('click', function()
-{
-brandsSlider.trigger('next.owl.carousel');
-});
-}
-}
-
-
-});</script>
-<style>
-
-.brands {
-    width: 100%;
-    padding-top: 90px;
-    padding-bottom: 90px;
-
-}
-
-.brands_slider_container {
-    height: 130px;
-    border: solid 1px #e8e8e8;
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-    padding-left: 97px;
-    padding-right: 97px;
-    /* background: #fff */
-}
-
-.brands_slider {
-    height: 100%;
-    margin-top: 50px
-}
-
-.brands_item {
-    height: 200px
-}
-
-.brands_item img {
-    max-width: 100%
-}
-
-.brands_nav {
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
-    padding: 5px;
-    cursor: pointer
-}
-
-.brands_nav i {
-    color: #e5e5e5;
-    -webkit-transition: all 200ms ease;
-    -moz-transition: all 200ms ease;
-    -ms-transition: all 200ms ease;
-    -o-transition: all 200ms ease;
-    transition: all 200ms ease
-}
-
-.brands_nav:hover i {
-    color: #676767
-}
-
-.brands_prev {
-    left: 40px
-}
-
-.brands_next {
-    right: 40px
-}
-</style>
-
-
-
-
-
-<!-- END SLIDER -->
-
-
-
     <div class="contactHome clearfix">
         <div class="contactHomeLt">
             <br><br><br><br>
@@ -444,19 +285,19 @@ brandsSlider.trigger('next.owl.carousel');
         </div>
         <div class="contactHomeRt">
             <br>
-            <form onsubmit="return validate()" action="MAILTO:zeerak71@yahoo.com" method="POST" enctype="text/plain">
+            <form action="./mail.php" method="POST" enctype="text/plain">
                 <table><br>
                     <tr>
                         <td class="label">Your Name</td>
                         <td class="label">Email Address</td>
                     </tr>
                     <tr>
-                        <td><input type="text" name="Name" class="form-control" id="name"></td>
-                        <td><input type="email" name="Email" class="form-control" id="mail"></td>
+                        <td><input type="text" name="name" class="form-control" id="name"></td>
+                        <td><input type="email" name="email" class="form-control" id="mail"></td>
                     </tr>
                 </table><br>
                 <label>How Can We Help You</label><br>
-                <textarea rows="3" id="message" name="Message"></textarea><br><br>
+                <textarea rows="3" id="message" name="message"></textarea><br><br>
                 <button type="submit" class="construct-btn">Request Quote</button><br><br>
             </form>
             <br>
@@ -502,6 +343,11 @@ include_once('./footer.php');
 
 </html>
 <style>
+
+
+
+
+
 .card-text::-webkit-scrollbar {
     display: none;
   }
