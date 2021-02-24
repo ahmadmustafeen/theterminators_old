@@ -114,24 +114,24 @@ include_once('./loader.php');
 
             <div class="contactFootRt"><br>
                 <div class="contactForm">
-                    <form action="" onsubmit="return valid()" method="POST"
+                    <form action="./mail.php" method="POST"
                         enctype="text/plain">
                         <table><br>
                             <tr>
-                                <td><input type="text" name="Name" class="form-control" id="name"
+                                <td><input type="text" name="name" class="form-control" id="name"
                                         placeholder="Your Name"></td>
-                                <td><input type="email" name="Email" class="form-control" id="mail"
+                                <td><input type="email" name="email" class="form-control" id="mail"
                                         placeholder="Your Email"></td>
                             </tr>
 
                             <tr>
-                                <td><input type="text" name="Name" class="form-control" id="sub" placeholder="Subject">
+                                <td><input type="text" name="subject" class="form-control" id="sub" placeholder="Subject">
                                 </td>
-                                <td><input type="number" name="Email" class="form-control" id="num"
+                                <td><input type="number" name="number" class="form-control" id="num"
                                         placeholder="Phone Number"></td>
                             </tr>
                         </table><br>
-                        <textarea rows="3" id="message" name="Message" placeholder=" Your Message"></textarea><br><br>
+                        <textarea rows="3" id="message" name="message" placeholder=" Your Message"></textarea><br><br>
                         <button type="submit" class="construct-btn">Request Quote</button><br><br>
                     </form>
                 </div>
