@@ -51,7 +51,7 @@ if(isset($_SESSION['User']))
                                     <h3>Quantity</h3>
                                 </td>
                                 <td>
-                                    <input type="text" name="quantity" >
+                                    <input type="text" name="qualification" >
                                 </td>
                             </tr>
 

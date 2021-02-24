@@ -11,12 +11,13 @@ if(isset($_GET['id']))$i=$_GET['id'];
 
 if($i==1){
 $table_name="TOOLS";
+$service_info  = mysqli_query($con,"SELECT  `name`, `qualification` FROM `professional_Skills` WHERE 1"); 
 }
 else if($i==2){
 $table_name="PROFESSIONAL STRENGTH";
+$service_infos  = mysqli_query($con,"SELECT  `name`, `qualification` FROM `tools` WHERE 1"); 
 }
 
-$service_info  = mysqli_query($con,"SELECT `service_id`, `service_heading` FROM `services_text` WHERE 1"); 
 ?>
 
 <!DOCTYPE html>
@@ -71,28 +72,42 @@ include_once('./header.php');
 
     <br>
     <table class="table">
-        <tr>
+
+  <tr>
             <td>
                 <h4>Serial Number</h4>
             </td>
             <td>
-                <h4>Instrument Name</h4>
+                <h4><?php echo ($i==1?"Tool Name":"Staff Name");?></h4>
             </td>
             <td>
-                <h4>Instrument Quantity</h4>
+                <h4><?php echo ($i==1?"Tool Quantity":"Staff Qualification");?></h4>
             </td>
         </tr>
+<?php
+$di=0; 
+while($row = mysqli_fetch_assoc($i==1?$service_info:$service_infos)){
+
+                                        $image_id = $row["name"];
+                                        $image_name = $row["qualification"];
+$di++;
+?>
+      
         <tr>
             <td>
-                <p>1</p>
+                <p><?php echo $di ?></p>
             </td>
             <td>
-                <p>Drilling machine</p>
+                <p><?php echo $image_id?></p>
             </td>
             <td>
-                <p>Instrument Quantity</p>
+                <p><?php echo $image_name?></p>
             </td>
         </tr>
+<?php
+}
+
+?>
     </table>
 
    

@@ -550,8 +550,8 @@ if(isset($_POST['addProfessional'])){
 
 if(isset($_POST['addTools'])){
     $name = $_POST['name'];
-    $quantity = $_POST['quantity'];
-    $updateQ="INSERT INTO `tools`(`name`, `quantity`) VALUES ('$name','$quantity')";
+    $quantity = $_POST['qualification'];
+    $updateQ="INSERT INTO `tools`(`name`, `qualification`) VALUES ('$name','$quantity')";
     if($con->query($updateQ)){
         $status="Successfully Added a new Tool";
         return printMessage($status);
