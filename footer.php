@@ -25,11 +25,11 @@ something.onclick = function() {
 <div class="footer">
     <br><br>
     <div class="footerTop">
-        <div class="footerTopBox footBox1">
+        <!-- <div class="footerTopBox footBox1">
             <img src="./siteDetails/logo.png" class="footLogo"><br>
             <p><?php echo $siteDetails?></p><br>
 
-        </div>
+        </div> -->
         <div class="footerTopBox footBox2">
             <br>
             <h4>QUICK LINKS</h4><br>

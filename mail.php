@@ -14,7 +14,8 @@ if(isset($_POST['subject'])){
 $subject = $_POST['subject'];
 }
 $email = $_POST['email'];
-$to = "admin@theterminators.biz.pk";
+// $to = "admin@theterminators.biz.pk";
+// $to = "engr.ahmadmustafeen@gmail.com";
 $subject = $name." have sent a message,Client Said: ".$subject;
 $txt = $_POST['message']." CLIENT EMAIL: ".$_POST['email'];
 $headers = "From: The Terminators Website";

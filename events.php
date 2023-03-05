@@ -50,7 +50,7 @@ include_once('./header.php');
         <br><br><br><br>
         <h2>OUR RECENT WORK</h2>
         <br>
-        <h6><a href="index.php">HOME</a> <span>/</span> PORTFOLIO</h6>
+        <h6><a href="index.php">HOME</a> <span>/</span> EVENTS</h6>
         <br><br><br><br>
     </div>
 
