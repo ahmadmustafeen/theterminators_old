@@ -36,7 +36,7 @@ if(isset($_POST['home'])){
   
     $servicesParagrapha = substr($servicesParagraph,0,255);
     $servicesParagraphb = substr($servicesParagraph,255,255);
-    $servicesParagraphc = substr($servicesParagraph,512,255);
+    $servicesParagraphc = substr($servicesParagraph,510,255);
     $servicesParagraphd = substr($servicesParagraph,765,255);
 
 
@@ -354,15 +354,15 @@ if(isset($_POST['addAboutUs'])){
     $aboutHeading3 = $_POST['aboutHeading3'];
     $aboutText1a = substr($aboutText1,0,255);
     $aboutText1b = substr($aboutText1,255,255);
-    $aboutText1c = substr($aboutText1,512,255);
+    $aboutText1c = substr($aboutText1,510,255);
     $aboutText1d = substr($aboutText1,765,255);
     $aboutText2a = substr($aboutText2,0,255);
     $aboutText2b = substr($aboutText2,255,255);
-    $aboutText2c = substr($aboutText2,512,255);
+    $aboutText2c = substr($aboutText2,510,255);
     $aboutText2d = substr($aboutText2,765,255);
     $aboutText3a = substr($aboutText3,0,255);
     $aboutText3b = substr($aboutText3,255,255);
-    $aboutText3c = substr($aboutText3,512,255);
+    $aboutText3c = substr($aboutText3,510,255);
     $aboutText3d = substr($aboutText3,765,255);
     
     $updateQ="UPDATE `addaboutus` SET 
@@ -404,7 +404,7 @@ if(isset($_POST['AddServiceText'])){
     $serviceParagraphd="";
     $serviceParagrapha = substr($serviceParagraph,0,255);
     $serviceParagraphb = substr($serviceParagraph,255,255);
-    $serviceParagraphc = substr($serviceParagraph,512,255);
+    $serviceParagraphc = substr($serviceParagraph,510,255);
     $serviceParagraphd = substr($serviceParagraph,765,255);
 echo strlen($serviceParagrapha);
 
@@ -421,6 +421,65 @@ echo strlen($serviceParagrapha);
 }
 
 
+
+
+
+if(isset($_POST['addAboutSecondHeading'])){
+    $aboutusHeading= $_POST['aboutusHeading'];
+    $serviceParagraph= $_POST['aboutusParagraph'];
+    $serviceParagrapha="";
+    $serviceParagraphb="";
+    $serviceParagraphc="";
+    $serviceParagraphd="";
+    // echo strlen($serviceParagraph);
+    $serviceParagrapha = substr($serviceParagraph,0,255);
+    // echo strlen($serviceParagrapha);
+    $serviceParagraphb = substr($serviceParagraph,255,255);
+    // echo strlen($serviceParagraphb);0
+    $serviceParagraphc = substr($serviceParagraph,510,255);
+    // echo ($serviceParagraphc);
+    $serviceParagraphd = substr($serviceParagraph,765,255);
+// echo strlen($serviceParagraphd);
+
+    $query= "UPDATE `addAboutUsSecond` SET `aboutusHeading`='$aboutusHeading',`aboutusParagraph1`='$serviceParagrapha',`aboutusParagraph2`='$serviceParagraphb',`aboutusParagraph3`='$serviceParagraphc',`aboutusParagraph4`='$serviceParagraphd' WHERE 1";
+    if($con->query($query)){
+        $status="Successfully updated About Us Second";
+        return printMessage($status);
+    }
+    else{
+        $status="Something went wrong while updating About us Second";
+        return printMessage($status);
+    }
+}
+
+
+if(isset($_POST['textTable'])){
+    $aboutusHeading= $_POST['aboutusHeading'];
+    $serviceParagraph= $_POST['aboutusParagraph'];
+    $serviceParagrapha="";
+    $serviceParagraphb="";
+    $serviceParagraphc="";
+    $serviceParagraphd="";
+    echo strlen($serviceParagraph);
+    $serviceParagrapha = substr($serviceParagraph,0,255);
+    echo strlen($serviceParagrapha);
+    $serviceParagraphb = substr($serviceParagraph,255,255);
+    echo strlen($serviceParagraphb);
+    $serviceParagraphc = substr($serviceParagraph,510,255);
+    echo strlen($serviceParagraphc);
+    $serviceParagraphd = substr($serviceParagraph,765,255);
+echo strlen($serviceParagraphd);
+
+    $query= "UPDATE `table_para` SET `table_heading`='$aboutusHeading',`table_para1`='$serviceParagrapha',`table_para2`='$serviceParagraphb',`table_para3`='$serviceParagraphc',`table_para4`='$serviceParagraphd' WHERE 1";
+    if($con->query($query)){
+        $status="Successfully updated Text Table";
+        return printMessage($status);
+    }
+    else{
+        $status="Something went wrong while updating About us Second";
+        return printMessage($status);
+    }
+}
 
 
 
@@ -447,7 +506,7 @@ if(isset($_POST['about'])){
     $aboutText= $_POST['aboutText'];
     $aboutText1 = substr($aboutText,0,255);
     $aboutText2 = substr($aboutText,255,255);
-    $aboutText3 = substr($aboutText,512,255);
+    $aboutText3 = substr($aboutText,510,255);
     $aboutText4 = substr($aboutText,765,255);
     $aboutMain = $_POST['aboutMain'];
     $aboutTextDesc= $_POST['aboutTextDesc'];
@@ -479,7 +538,7 @@ if(isset($_POST['priorities'])){
 
     $description1 = substr($description,0,255);
     $description2 = substr($description,255,255);
-    $description3 = substr($description,512,255);
+    $description3 = substr($description,510,255);
     $description4 = substr($description,765,255);
 
     $firstHeading = $_POST['firstHeading'];
@@ -536,7 +595,8 @@ if(isset($_POST['addSocial'])){
 if(isset($_POST['addProfessional'])){
     $name = $_POST['name'];
     $qualification = $_POST['qualification'];
-    $updateQ="INSERT INTO `professional_Skills`( `name`, `qualification`) VALUES ('$name','$qualification')";
+    $four = $_POST['four'];
+    $updateQ="INSERT INTO `professional_Skills`( `name`, `qualification`,`four`) VALUES ('$name','$qualification','$four')";
     if($con->query($updateQ)){
         $status="Successfully Added a new Skilled Person";
         return printMessage($status);
@@ -603,7 +663,7 @@ if(isset($_POST['updateNOB'])){
         $nobNumber = $_POST['nobNumber'];
         $nobParagrapha = substr($nobParagraph,0,255);
         $nobParagraphb = substr($nobParagraph,255,255);
-        $nobParagraphc = substr($nobParagraph,512,255);
+        $nobParagraphc = substr($nobParagraph,510,255);
         $nobParagraphd = substr($nobParagraph,765,255);
         $nob_heading = "nob_heading".$nobNumber;
         $nobNumbera = "nob_paragraph".$nobNumber."a";
@@ -636,17 +696,23 @@ if(isset($_POST['updateNOB'])){
 if(isset($_POST['updateNOBtext'])){
     $nob_heading = $_POST['nob_heading'];
     $nob_paragraph = $_POST['nob_paragraph'];
+$nob_paragrapha="";
+$nob_paragraphb="";
+$nob_paragraphc="";
+$nob_paragraphd="";
     $nob_paragrapha = substr($nob_paragraph,0,255);
     $nob_paragraphb = substr($nob_paragraph,255,255);
-    $nob_paragraphc = substr($nob_paragraph,512,255);
+    $nob_paragraphc = substr($nob_paragraph,510,255);
     $nob_paragraphd = substr($nob_paragraph,765,255);
 
-    $query="UPDATE `nature_of_business` SET `nob_heading`='$nob_heading',`nob_paragraph1`='$nobParagrapha',`nob_paragraph2`=[value-3]'$nob_paragraphb,`nob_paragraph3`='$nob_paragraphc',`nob_paragraph4`='$nob_paragraphd' WHERE 1";
+    $query="UPDATE `nature_of_business` SET `nob_heading`='$nob_heading',`nob_paragraph1`='$nob_paragrapha',`nob_paragraph2`='$nob_paragraphb',`nob_paragraph3`='$nob_paragraphc',`nob_paragraph4`='$nob_paragraphd' WHERE 1";
     if($con->query($query)){
     $status="Successfully Edited Nature of busines text and heading";
+printMessage($status);
     }
     else{
     $status="Something went wrong while editing Nature of business.";
+printMessage($status);
     }
 }
 

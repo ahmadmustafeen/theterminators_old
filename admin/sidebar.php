@@ -24,6 +24,14 @@
                 </div>
             </a>
         </div>
+         <div class="row-sidebar">
+            <a href="./addAboutSecondHeading.php">
+                <i class="fas fa-laptop icon-sidebar"></i>
+                <div class="row-sidebar-text ">
+                    About Us (Second)
+                </div>
+            </a>
+        </div>
         
         <div class="row-sidebar">
             <a href="./AddServiceText.php">
@@ -56,6 +64,14 @@
                 <i class="fas fa-laptop icon-sidebar"></i>
                 <div class="row-sidebar-text ">
                 Delete Service Image   
+                </div>
+            </a>
+        </div>
+         <div class="row-sidebar">
+            <a href="./textTable.php">
+                <i class="fas fa-laptop icon-sidebar"></i>
+                <div class="row-sidebar-text ">
+                   Professional Text
                 </div>
             </a>
         </div>

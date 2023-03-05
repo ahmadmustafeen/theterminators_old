@@ -1,6 +1,8 @@
-<?php
 
-require_once('./adminz/connection.php');
+
+<?php 
+include_once('./adminz/connection.php');
+$service_info  = mysqli_query($con,"SELECT `service_id`, `service_heading` FROM `services_text` WHERE 1"); 
 $service_Q  = mysqli_query($con,"SELECT * FROM `service` WHERE 1");
 while($row = mysqli_fetch_assoc($service_Q)){
     $services_header = $row['services_header'];
@@ -10,14 +12,22 @@ while($row = mysqli_fetch_assoc($service_Q)){
     $services_text4 = $row['services_text4'];
 }
 
+
 ?>
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>The Terminators</title>
     <link rel="shortcut icon" type="image/x-icon" href="./siteDetails/logo.png">
-
+    <script>
+    const onPRess = (id) =>{
+      document.getElementById(id).src
+      document.getElementById("myModal").style.display = "block";
+      document.getElementById("img01").src = document.getElementById(id).src;
+    }
+    </script>
     <link rel="stylesheet" type="text/css" href="./bootstrap/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="stylesheet" type="text/css" href="./css/modal.css">
@@ -43,7 +53,7 @@ include_once('./header.php');
     <?php
 
 
-include_once('./loader.php');
+// include_once('./loader.php');
 ?>
 
 
@@ -54,123 +64,39 @@ include_once('./loader.php');
         <h6><a href="index.php">HOME</a> <span>/</span> SERVICES</h6>
         <br><br><br><br>
     </div>
+
     <br>
 
-    <div class="service services">
-        <br><br>
-        <div class="serHead text-center">
+
+    <br>
+  <div class="serHead text-center">
             <h6>OUR SERVICES</h6>
             <h2><?php echo $services_header ?></h2>
-            <p><?php echo $services_text1,$services_text2,$services_text3,$services_text4 ?></p>
+            <p><?php echo $services_text1.$services_text2.$services_text3.$services_text4 ?></p>
         </div><br>
-        <div class="card-deck">
-
-            <?php
-for ($i=1;$i<4;$i++){
-  $header = 'heading'.$i;
-  $texter = 'text'.$i;
-  $service_Q  = mysqli_query($con,"SELECT `$header`,`$texter` FROM `services` WHERE 1"); 
-  while($row = mysqli_fetch_assoc($service_Q)){
-      $heading = $row[$header];
-      $text = $row[$texter];
-  }
-  if($heading == ''){
-    ?>
-            <div class="card" style="border:none;">
-
-            </div>
-            <?php
-  }
-  else{
-    ?>
-            <div class="card">
-
-                <img class="card-img-top" src="./services/service<?php echo $i?>.png"  id="img<?php echo $i ?>" alt="Card image cap">
-
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo $heading ?></h5>
-                    <p class="card-text" style="height:100px;overflow-y:scroll"><?php echo $text ?></p>
-                </div>
-            </div>
-            <div id="myModal" class="modal">
-                <span class="close">&times;</span>
-                <img class="modal-content" id="img01">
-            </div>
-            <?php
-
-  }
-  
+<div class="services-tag">
+<?php
+while($row = mysqli_fetch_assoc($service_info)){
+$service_id = $row['service_id'];
+$service_heading = $row['service_heading'];
+?><a href="./services-detail.php?service=<?php echo$service_id?>"><h3><?php echo$service_heading?></h3></a>
+<?php
 }
-?>
-
-        </div>
-
-        <br>
-
-        <div class="card-deck">
-
-
-            <?php
-for ($i=4;$i<7;$i++){
-  $header = 'heading'.$i;
-  $texter = 'text'.$i;
-  $service_Q  = mysqli_query($con,"SELECT `$header`,`$texter` FROM `services` WHERE 1"); 
-  while($row = mysqli_fetch_assoc($service_Q)){
-      $heading = $row[$header];
-      $text = $row[$texter];
-  if($heading == ''){
-    ?>
-            <div class="card" style="border:none;">
-
-            </div>
-            <?php
-  }
-  
-  else{
-    ?>
-            <div class="card">
-                <img class="card-img-top" src="./services/service<?php echo$i?>.png" alt="Card image cap" >
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo $heading ?></h5>
-                    <p class="card-text" style="height:100px;overflow-y:scroll"><?php echo $text ?></p>
-                </div>
-            </div>
-            <?php
-
-  }
-}
-}
-  
 
 ?>
+          
 
-        </div>
+</div>
 
-        <br><br><br>
+  
     </div>
+
+    <br><br>
 
     <?php
 include_once('./footer.php');
 ?>
-
-    <!-- <div class="construct-site-preloader" id="preloader">
-         <div class="sk-cube-grid">
-            <div class="sk-cube sk-cube1"></div>
-            <div class="sk-cube sk-cube2"></div>
-            <div class="sk-cube sk-cube3"></div>
-            <div class="sk-cube sk-cube4"></div>
-            <div class="sk-cube sk-cube5"></div>
-            <div class="sk-cube sk-cube6"></div>
-            <div class="sk-cube sk-cube7"></div>
-            <div class="sk-cube sk-cube8"></div>
-            <div class="sk-cube sk-cube9"></div>
-         </div>
-</div>
- -->
-
-
-   
- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
     </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -194,23 +120,42 @@ include_once('./footer.php');
     <script src="js/button.js"></script>
     <script src="js/preload.js"></script>
     <script src="js/valid.js"></script>
-    <!-- <script src="js/eventModal.js"></script> -->
+    <script src="js/certModal.js"></script>
+<script>
+var span = document.getElementsByClassName("close")[0];
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  console.log("press");
+  document.getElementById("myModal").style.display = "none";
+}
+</script>
 
-    <script type="text/javascript">
-
-
-    </script>
 </body>
 
 </html>
+
 <style>
-.card-text::-webkit-scrollbar {
-    display: none;
-  }
-  
-  /* Hide scrollbar for IE, Edge and Firefox */
-  .card-text {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-  }
+.anchor{
+    background-color:red
+}
+.services-tag{
+    padding:50px
+}
+
+.services-tag h3{
+    padding:20px;
+    color:black; 
+    background-color:rgba(0,0,0,0.1);
+       /* width:fit-content */
+}
+.services-tag h3:hover{
+    
+    background-color:rgba(0,0,0,0.3);
+    cursor:pointer
+}
+.services-tag a{
+    color:black;
+    width:fit-content
+}
 </style>
+

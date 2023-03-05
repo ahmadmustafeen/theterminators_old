@@ -11,11 +11,21 @@ if(isset($_GET['id']))$i=$_GET['id'];
 
 if($i==1){
 $table_name="TOOLS";
-$service_info  = mysqli_query($con,"SELECT  `name`, `qualification` FROM `professional_Skills` WHERE 1"); 
+$service_info  = mysqli_query($con,"SELECT  `name`, `qualification` FROM `tools` WHERE 1"); 
 }
 else if($i==2){
 $table_name="PROFESSIONAL STRENGTH";
-$service_infos  = mysqli_query($con,"SELECT  `name`, `qualification` FROM `tools` WHERE 1"); 
+$service_infos  = mysqli_query($con,"SELECT  `name`, `qualification`,`four` FROM `professional_Skills` WHERE 1"); 
+}
+
+
+$service_Q  = mysqli_query($con,"SELECT * FROM `table_para` WHERE 1");
+while($row = mysqli_fetch_assoc($service_Q)){
+    $table_heading = $row['table_heading'];
+    $table_para1 = $row['table_para1'];
+    $table_para2 = $row['table_para2'];
+    $table_para3 = $row['table_para3'];
+    $table_para4 = $row['table_para4'];
 }
 
 ?>
@@ -69,8 +79,29 @@ include_once('./header.php');
         <h6><a href="index.php">HOME</a> <span>/</span> <?php echo $table_name?></h6>
         <br><br><br><br>
     </div>
+<?php if($i!=1){?>
+<div style="display:flex;justify-content:center;align-items:center;padding-top:50px;padding-bottom:50px">
+    
+<div style="width:80%;">
+    
+            <h2><?php echo $table_heading ?></h2>
+            <p class="paragraph"><?php echo $table_para1.$table_para2.$table_para3.$table_para4 ?></p>
+    
 
-    <br>
+</div>
+
+    
+    
+</div>          
+    
+
+
+<?php
+}
+?>
+
+
+
     <table class="table">
 
   <tr>
@@ -83,6 +114,11 @@ include_once('./header.php');
             <td>
                 <h4><?php echo ($i==1?"Tool Quantity":"Staff Qualification");?></h4>
             </td>
+            <?php if($i!=1){
+            ?>
+            <td><h4>Designation</h4></td>
+            <?php
+            }?>
         </tr>
 <?php
 $di=0; 
@@ -103,6 +139,11 @@ $di++;
             <td>
                 <p><?php echo $image_name?></p>
             </td>
+             <?php if($i!=1){
+            ?>
+            <td><?php echo $row["four"]?></td>
+            <?php
+            }?>
         </tr>
 <?php
 }
@@ -157,6 +198,11 @@ span.onclick = function() {
 </html>
 
 <style>
+
+.paragraph{
+    width:80%;
+    word-wrap: break-word;
+}
 .anchor{
     background-color:red
 }

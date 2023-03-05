@@ -82,10 +82,18 @@ body{
 	padding: 30px 0;
 	height: fit-content;
 }	
+/*old*/
+/*.headerBot img{*/
+/*	width: 70%;*/
+/*	padding-left: 10%;*/
+/*}*/
+/*updated*/
 .headerBot img{
-	width: 70%;
-	padding-left: 10%;
+	width: 75px;
+	height: 75px;
+	padding-right: 10%;
 }
+
 .headerBotBox{
 	display: flex;
 	flex-direction: row;
@@ -231,9 +239,15 @@ body{
 .card-text{
 	font-size: 15px;
 }
+/*old*/
+/*.footerTopBox img{*/
+/*	width: 100%;*/
+/*}*/
 
+/*updaated*/
 .footerTopBox img{
-	width: 100%;
+	width: 75px;
+	width: 75px;
 }
 .parallex{
 	width: 100%;

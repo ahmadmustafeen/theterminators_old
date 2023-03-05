@@ -61,7 +61,7 @@ while($row = mysqli_fetch_assoc($social_Q)){
         <a class="nav-link" href="register.php">REGISTRATION</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="services.php">SERVICES</a>
+        <a class="nav-link" href="service.php">SERVICES</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="gallery.php">GALLERY</a>
@@ -70,7 +70,7 @@ while($row = mysqli_fetch_assoc($social_Q)){
         <a class="nav-link" href="portfolio.php">PORTFOLIO</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="event.php">EVENT</a>
+        <a class="nav-link" href="clients.php">CLIENTS</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="contact.php">CONTACT</a>

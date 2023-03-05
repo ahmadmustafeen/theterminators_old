@@ -55,6 +55,14 @@ if(isset($_SESSION['User']))
                                 </td>
                             </tr>
 
+  <tr>
+                                <td>
+                                    <h3> Designation</h3>
+                                </td>
+                                <td>
+                                    <input type="text" name="four" >
+                                </td>
+                            </tr>
 
                             <tr>
                                 <td></td>

@@ -15,6 +15,13 @@ while($row = mysqli_fetch_assoc($social_Q)){
     $linkedIn = $row['linkedIn'];
 }
 ?>
+<script>
+    var something = document.getElementById('something');
+something.onclick = function() {
+    // do something...
+    window.open("https://www.ahmadmustafeen.com","_target")
+};
+</script>
 <div class="footer">
     <br><br>
     <div class="footerTop">
@@ -30,7 +37,7 @@ while($row = mysqli_fetch_assoc($social_Q)){
                 <a href="about.php">
                     <li><i class="fas fa-chevron-right"></i> &nbsp;&nbsp; About Us</li>
                 </a>
-                <a href="services.php">
+                <a href="service.php">
                     <li><i class="fas fa-chevron-right"></i> &nbsp;&nbsp; Our Services</li>
                 </a>
                 <!-- <a href="blogs.php">
@@ -67,6 +74,6 @@ while($row = mysqli_fetch_assoc($social_Q)){
     </div>
     <br>
     <div class="footerBot">
-        <p>Powered By Tenacious Innovation. All Rights Reserved.</p>
+        <a href="https://www.ahmadmustafeen.com" target="_blank" style="color:white; margin-top:20px; margin-left:20px;">Developed By Ahmad Mustafeen. All Rights Reserved.</a>
     </div>
 </div>

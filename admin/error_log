@@ -1,7 +1,0 @@
-[28-Dec-2020 19:01:07 UTC] PHP Parse error:  syntax error, unexpected '}', expecting ';' in /home/vey0kgvdfxml/public_html/theterminators.biz.pk/admin/success.php on line 24
-[30-Dec-2020 01:24:05 Asia/Karachi] PHP Warning:  unlink(../registration/registration4.png): No such file or directory in /home/vey0kgvdfxml/public_html/theterminators.biz.pk/admin/success.php on line 329
-[30-Dec-2020 01:24:15 Asia/Karachi] PHP Warning:  unlink(../registration/registration4.png): No such file or directory in /home/vey0kgvdfxml/public_html/theterminators.biz.pk/admin/success.php on line 329
-[30-Dec-2020 01:24:24 Asia/Karachi] PHP Warning:  unlink(../registration/registration4.png): No such file or directory in /home/vey0kgvdfxml/public_html/theterminators.biz.pk/admin/success.php on line 329
-[30-Dec-2020 01:24:24 Asia/Karachi] PHP Warning:  unlink(../registration/registration4.png): No such file or directory in /home/vey0kgvdfxml/public_html/theterminators.biz.pk/admin/success.php on line 329
-[30-Dec-2020 01:24:44 Asia/Karachi] PHP Warning:  unlink(../registration/registration7.png): No such file or directory in /home/vey0kgvdfxml/public_html/theterminators.biz.pk/admin/success.php on line 329
-[09-Jan-2021 13:35:30 Asia/Karachi] PHP Warning:  unlink(../registration/registration12.png): No such file or directory in /home/vey0kgvdfxml/public_html/theterminators.biz.pk/admin/success.php on line 329

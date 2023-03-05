@@ -1,13 +1,17 @@
 <?php
 require_once('./adminz/connection.php');
-$service_Q  = mysqli_query($con,"SELECT * FROM `service` WHERE 1");
+$service_Q  = mysqli_query($con,"SELECT * FROM `nature_of_business` WHERE 1");
 while($row = mysqli_fetch_assoc($service_Q)){
-    $services_header = $row['services_header'];
-    $services_text1 = $row['services_text1'];
-    $services_text2 = $row['services_text2'];
-    $services_text3 = $row['services_text3'];
-    $services_text4 = $row['services_text4'];
+    $services_header = $row['nob_heading'];
+    $services_text1 = $row['nob_paragraph1'];
+    $services_text2 = $row['nob_paragraph2'];
+    $services_text3 = $row['nob_paragraph3'];
+    $services_text4 = $row['nob_paragraph4'];
 }
+
+
+
+
 $contact_Q  = mysqli_query($con,"SELECT * FROM `contact` WHERE 1");
 while($row = mysqli_fetch_assoc($contact_Q)){
     $contact_header = $row['contact_header'];
@@ -80,7 +84,6 @@ $description = $priorities_description1.$priorities_description2.$priorities_des
 ?>
 
 
-
 <!DOCTYPE html>
 <html>
 
@@ -134,8 +137,7 @@ include_once('./header.php');
                             <?php echo $slider1_text ?>
                         </p>
                         <a href="contact.php"
-                            class="construct-btn animate__animated animate__fadeInUp animate__slow animate__delay-0.5s">start
-                            a project</a>
+                            class="construct-btn animate__animated animate__fadeInUp animate__slow animate__delay-0.5s">Request a Quote</a>
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -144,8 +146,7 @@ include_once('./header.php');
                         <h2 class="animate__animated animate__fadeInDown animate__slow animate__delay-0.5s"><?php echo $slider2_heading ?></h2>
                         <p class="animate__animated animate__fadeIn animate__slower animate__delay-1s"><?php echo $slider2_text?> </p>
                         <a href="contact.php"
-                            class="construct-btn animate__animated animate__fadeInUp animate__slow animate__delay-0.5s">start
-                            a project</a>
+                            class="construct-btn animate__animated animate__fadeInUp animate__slow animate__delay-0.5s">Request a Quote</a>
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -156,8 +157,7 @@ include_once('./header.php');
                         </h2>
                         <p class="animate__animated animate__fadeIn animate__slower animate__delay-1s"><?php echo $slider3_text ?> </p>
                         <a href="contact.php"
-                            class="construct-btn animate__animated animate__fadeInUp animate__slow animate__delay-0.5s">start
-                            a project</a>
+                            class="construct-btn animate__animated animate__fadeInUp animate__slow animate__delay-0.5s">Request a Quote</a>
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -166,8 +166,7 @@ include_once('./header.php');
                         <h2 class="animate__animated animate__fadeInDown animate__slow animate__delay-0.5s"><?php echo $slider4_heading ?></h2>
                         <p class="animate__animated animate__fadeIn animate__slower animate__delay-1s"><?php echo $slider4_text ?> </p>
                         <a href="contact.php"
-                            class="construct-btn animate__animated animate__fadeInUp animate__slow animate__delay-0.5s">start
-                            a project</a>
+                            class="construct-btn animate__animated animate__fadeInUp animate__slow animate__delay-0.5s">Request a Quote</a>
                     </div>
                 </div>
             </div>
@@ -266,7 +265,7 @@ include_once('./header.php');
             <p><i class="fas fa-home"></i> &nbsp; <?php echo $getting_s_t ?></p>
         </div><br>
         <div class="parallexBut">
-            <a href="contact.php" class="construct-btn">start a project</a>
+            <a href="contact.php" class="construct-btn">Request a Quote</a>
         </div><br>
     </div>
 
@@ -285,20 +284,20 @@ include_once('./header.php');
         </div>
         <div class="contactHomeRt">
             <br>
-            <form action="./mail.php" method="POST" enctype="text/plain">
+            <form action="./mail.php" method="POST">
                 <table><br>
                     <tr>
                         <td class="label">Your Name</td>
                         <td class="label">Email Address</td>
                     </tr>
                     <tr>
-                        <td><input type="text" name="name" class="form-control" id="name"></td>
-                        <td><input type="email" name="email" class="form-control" id="mail"></td>
+                        <td><input type="text" name="name" class="form-control" id="name" value=""></td>
+                        <td><input type="email" name="email" class="form-control" id="mail"value=""></td>
                     </tr>
                 </table><br>
                 <label>How Can We Help You</label><br>
-                <textarea rows="3" id="message" name="message"></textarea><br><br>
-                <button type="submit" class="construct-btn">Request Quote</button><br><br>
+                <textarea rows="3" id="message" value=""name="message"></textarea><br><br>
+                <button type="submit" class="construct-btn">Request a Quote</button><br><br>
             </form>
             <br>
         </div>
